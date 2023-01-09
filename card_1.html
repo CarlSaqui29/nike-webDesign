@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" circle-theme="one">
+<head>
+  <title>card_1</title>
+  <!--important meta tags-->
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <!--links-->
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!--uikit-->
+  <link rel="stylesheet" href="css/uikit.min.css">
+  <script src="js/uikit.min.js"></script>
+  <script src="js/uikit-icons.min.js"></script>
+  <!--JQUERY-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style type="text/css">
+    /*circle-themes*/
+    html.transition,
+    html.transition *,
+    html.transition *:before,
+    html.transition *:after {
+      transition: all 750ms !important;
+      transition-delay: 0 !important;
+    }
+    html[circle-theme="one"] {
+      --color_1: #F48FB1;
+      --color_2: #B39DDB;
+    }
+    html[circle-theme="two"] {
+      --color_1: #FDD835;
+      --color_2: #F48FB1;
+    }
+    html[circle-theme="three"] {
+      --color_1: #33ccff;
+      --color_2: #000;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins';
+    }
+    h1{font-size: 3vw;}
+    h2{font-size: 1.5vw;}
+    /******NAVIGATION******/
+    .left-logo img {
+      width: 13vw;
+    }
+    .uk-navbar-container {
+      padding: 0 5vw;
+    }
+    .cart-manage{
+      margin-right: 1.5vw;
+      margin-top: -.4vw;
+    }
+    /******CART-COLUMN******/
+    .cart-row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .cart-column {
+      float: left;
+    }
+    .left, .right {
+      width: 25%;
+    }
+    .mid {
+      width: 50%;
+    }
+    .left-inner {
+      padding-left: 5vw;
+      padding-top: 8.5vw;
+    }
+    .left-inner h1{
+      margin-top: -1vw;
+      margin-bottom: 1.5vw;
+      letter-spacing: .2vw;
+    }
+    @supports (-webkit-text-stroke: .2vw #34495E) {
+    .left-inner h1 {
+      -webkit-text-stroke: .2vw #34495E;
+      -webkit-text-fill-color: #34495E;
+    }
+    .colors,
+    .sizes {
+      list-style: none;
+      margin-left: -2vw;
+    }
+    .left-inner .color-text {
+      color: #797D7F;
+      font-size: 16px;
+    }
+    .left-inner .size-text {
+      margin-top: 70px;
+      color: #797D7F;
+      font-size: 16px;
+    }
+    .colors li,
+    .sizes li {
+      float: left;
+    }
+    .colors li a {
+      display: block;
+      padding: .7vw;
+      background-color: blue;
+      text-decoration: none;
+      margin: 1vw 2vw;
+      margin-left: 0vw;
+      border-radius: 100%;
+    }
+    .sizes li a{
+      display: block;
+      padding: 3px 12px;
+      margin-right: 15px;
+      margin-left: -2px;
+      background-color: transparent;
+      color: #000;
+      border: 1px solid #EEEEEE;
+    }
+    .left-inner h2{
+      font-size: 2vw;
+      margin-top: 6vw;
+      margin-bottom: 3vw;
+      font-weight: bolder;
+      color: #797D7F;
+    }
+    .left-inner span {
+      font-size: 1.5vw;
+    }
+    .left-inner a {
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      padding: 1vw 2vw;
+      background-color: #9575CD;
+      border-radius: .5vw;
+      margin-top: 2vw;
+    }
+    .circle-radient {
+      position: relative;
+      z-index: -1;
+      padding: 16vw 10vw;
+      margin: 0 8vw;
+      margin-top: 1vw;
+      border-radius: 100%;
+      background: linear-gradient(130deg,var(--color_1),var(--color_2));
+    }
+    .swiper-container {
+      background-color: ;
+      width: 50vw;
+      height: 50vw;
+      padding: 9vw 3vw;
+      padding-bottom: 16vw;
+      position: relative;
+      z-index: 10;
+      margin-top: -38vw;
+    }
+    .swiper-slide img {
+      margin-left: 2vw;
+      margin-top: 1.5vw;
+      width: 90%;
+      height: 90%;
+      -ms-transform: rotate(-28deg); /* IE 9 */
+      transform: rotate(-28deg);
+    }
+    .share-wrap {
+      margin-right: -5vw;
+      margin-left: 7vw;
+      margin-top: 15vw;
+      -ms-transform: rotate(-90deg); /* IE 9 */
+      transform: rotate(-90deg);
+    }
+    .share-wrap h4{
+      color: #99A3A4;
+    }
+    .share-wrap .line {
+      padding: 0 4vw;
+      padding-right: 5.5vw;
+    }
+    .share-wrap .inner-line {
+      margin-top: -2vw;
+      border-bottom: .1vw solid #99A3A4;
+    }
+    .share-button {
+      float: right;
+    }
+    .share-wrap a {
+      color: #99A3A4;
+      float: left;
+      border: none;
+      text-decoration: none;
+      margin: 0 1vw;
+      margin-top: -.8vw;
+      -ms-transform: rotate(90deg); /* IE 9 */
+      transform: rotate(90deg);
+    }
+    .swiper-pagination {
+      display: none;
+    }
+    .slider-wrap {
+      text-align: center;
+      margin-top: 13vw;
+      margin-right: 5vw;
+    }
+    .slider-wrap p {
+      font-size: 1.3vw;
+      color: #99A3A4;
+    }
+    .slider-wrap a {
+      font-size: 2vw;
+      text-decoration: none;
+      color: #797D7F;
+      border: none;
+      padding: 0 .5vw;
+    }
+    .swiper-button-left {
+      margin-right: 5vw;
+    }
+    .swiper-button-right {
+      margin-left: 5vw;
+    }
+    .progress-bar{
+      width: 100%;
+      max-width: 600px;
+      padding: 0 20px;
+    }
+    .progress-bar-inner{
+      height: 20px;
+      background: #cacaca;
+      border-radius: 8vw;
+    }
+    .progress-bar-per{
+      height: 20px;
+      background-color: #9575CD;
+      border-radius: 8vw;
+      width: 35;
+      transition: 1s linear;
+      position: relative;
+    }
+    @media (max-width: 1000px) {
+      .left-logo img {
+        width: 140px;
+      }
+      .uk-navbar-container {
+        padding: 0 30px;
+      }
+      .cart-manage{
+        margin-right: 15px;
+        margin-top: -4px;
+      }
+      .left {
+        width: 40%;
+        margin-top: -60px;
+      }
+      .mid {
+        width: 60%;
+        margin-top: 50px;
+      }
+      .right {
+        display: none;
+      }
+      .color-text {
+        margin-top: -3px;
+      }
+      .colors {
+        margin-left: -28px;
+        margin-top: -7px;
+      }
+      .colors li a {
+        padding: 8px;
+        margin: 0 25px;
+        margin-left: 0;
+      }
+      .size-text{
+        transform: translateY(-15px);
+      }
+      .sizes {
+        transform: translateY(-40px);
+        margin-left: -28px;
+        margin-bottom: 0;
+      }
+      .left-inner h2{
+        font-size: 23px;
+        margin-top: 75px;
+        margin-bottom: 35px;
+      }
+      .circle-radient {
+        padding: 200px 120px;
+      }
+      .swiper-container {
+        width: 500px;
+        height: 500px;
+        padding: 100px 20px;
+        padding-bottom: 160px;
+        margin-top: -480px;
+      }
+      .swiper-slide img {
+        margin-left: 5px;
+        margin-top: 60px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    @media (max-width: 920px) {
+      .circle-radient {
+        padding: 200px 190px;
+      }
+    }
+    @media (max-width: 880px) {
+      .left {
+        width: 35%;
+      }
+      .mid {
+        width: 65%;
+      }
+      .circle-radient {
+        padding: 200px 210px;
+      }
+    }
+    @media (max-width: 840px) {
+      .mid {
+        width: 100%;
+        padding: 0 15vw;
+        margin-top: 20px;
+      }
+      .left {
+        display: none;  
+      }
+    }
+    @media (max-width: 767px) {
+      .uk-navbar-container {
+        margin-top: -10px;
+      }
+    }
+    @media (max-width: 690px) {
+      .mid {
+        margin-left: -10px;
+      }
+    }
+    @media (max-width: 650px) {
+      .mid {
+        margin-left: -20px;
+      }
+    }
+    @media (max-width: 630px) {
+      .mid {
+        margin-left: -30px;
+      }
+    }
+    @media (max-width: 600px) {
+      .mid {
+        margin-left: -45px;
+      }
+      .left-second {
+        padding-right: 25px;
+      }
+    }
+    @media (max-width: 580px) {
+      .mid {
+        margin-left: 5px;
+      }
+      .circle-radient {
+        padding: 160px 170px;
+      }
+      .swiper-slide img {
+        margin-left: 10px;
+        margin-top: 130px;
+        width: 80%;
+        height: 80%;
+      }
+    }
+    @media (max-width: 500px) {
+      .uk-navbar-container {
+        padding: 0 20px;
+      }
+      .cart-manage{
+        margin-right: 8px;
+      }
+      .uk-navbar-toggle {
+        margin-right: -20px;
+      }
+    }
+    @media (max-width: 380px) {
+      .uk-navbar-container {
+        padding: 0 15px;
+      }
+      .uk-navbar-toggle {
+        margin-right: -25px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<!-------------NAVIGATION------------->
+  <!--items in left-->
+  <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+    <div class="uk-navbar-left left-logo">
+      <img src="images/logo.png">
+    </div>
+  <!--items in right-->
+    <div class="uk-navbar-right">
+      <div class="cart-manage">
+        <a href="" uk-icon="icon: cart"></a>
+      </div>
+      <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+    </div>
+  </nav>
+<!-------------CART-COLUMN------------->
+  <div class="cart-row">
+    <div class="cart-column left">
+      <div class="left-inner">
+        <h3 style="color: #99A3A4;">Nike Air Max</h3>
+        <h1>RUNNER</h1>
+        <p>Comfortable for every occasion,
+           this shoe will help you adapt to your busy daily routine easily.</p>
+        <h4 class="color-text">Colors</h4>
+        <ul class="colors">
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+        </ul>
+        <h4 class="size-text">Sizes</h4>
+        <ul class="sizes">
+          <li><a href="">11</a></li>
+          <li><a href="">10</a></li>
+          <li><a href="">9</a></li>
+          <li><a href="">8</a></li>
+          <li><a href="">7</a></li>
+        </ul>
+        <h2>$98.<span>00</span></h2>
+        <a href="">Add To Cart</a>
+      </div>
+    </div>
+    <div class="cart-column mid">
+      <div class="circle-radient"></div>
+      <!-- Swiper -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/airmax1.png"></div>
+          <div class="swiper-slide"><img src="images/airmax2.png"></div>
+          <div class="swiper-slide"><img src="images/airmax3.png"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-column right">
+      <div class="share-wrap">
+        <h4>Share</h4>
+        <div class="line"><div class="inner-line"></div></div>
+        <div class="share-button">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+        </div>
+        
+      </div>
+      <!--this pagnination is hide,
+          the purpose id to get the 
+          current active slide index-->
+      <div class="swiper-pagination"></div>
+      <div class="slider-wrap">
+        <p class="slides-number">
+          <a class="swiper-button-left" ><i class="fas fa-angle-left"></i></a><strong class="current-slide">current</strong> / 
+          <strong class="total-slide">total</strong><a class="swiper-button-right"><i class="fas fa-angle-right"></i></a>
+          <!--progress-bar-->
+          <div class="progress-bar">
+            <div class="progress-bar-inner">
+              <div class="progress-bar-per"></div>
+            </div>
+          </div>
+        </p>
+      </div>
+    </div>
+  </div>
+ <div class="left-inner left-second">
+  <h3 style="color: #99A3A4;">Nike Air Max</h3>
+  <h1>RUNNER</h1>
+  <p>Comfortable for every occasion,
+     this shoe will help you adapt to your busy daily routine easily.</p>
+  <h4 class="color-text">Colors</h4>
+  <ul class="colors">
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+  </ul>
+  <h4 class="size-text">Sizes</h4>
+  <ul class="sizes">
+    <li><a href="">11</a></li>
+    <li><a href="">10</a></li>
+    <li><a href="">9</a></li>
+    <li><a href="">8</a></li>
+    <li><a href="">7</a></li>
+  </ul>
+  <h2>$98.<span>00</span></h2>
+  <a href="">Add To Cart</a>
+</div>
+  <script type="text/javascript">
+
+    let colors = ['one', 'two', 'three'];
+    let texts = ['', 'RUNNER', 'SWAG', 'ATHLETE']
+    let prog_value = [33.3, 66.6, 99.9];
+    var temp = 1, per = 35, per_temp = 35;
+    //circle-themes
+    /*
+    let transition = () => {
+      document.documentElement.classList.add('transition');
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('transition')
+      } ,500)
+    }*/
+    var mySwiper = new Swiper('.swiper-container', {//swiper
+      mousewheel: {
+        invert: true,
+      },
+      direction: 'vertical',
+      speed: 1000,
+      spaceBetween: 350,
+      slidesPerView: 1,
+      loop: true,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: true,
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+      },
+      pagination: {// If we need pagination
+        el: '.swiper-pagination',
+        //type: 'fraction',
+        clickable: true,
+      },
+      on: {
+      slideChange: function() { 
+          var currentSlide = this.realIndex + 1;
+          if (currentSlide >= 10) {
+            document.querySelector('.current-slide').innerHTML = currentSlide;
+            document.querySelector('.left-inner h1').innerHTML = (texts[currentSlide]);
+            document.querySelector('.left-second h1').innerHTML = (texts[currentSlide]);
+          } else {
+            document.querySelector('.current-slide').innerHTML = "0" + currentSlide;
+            console.log(currentSlide)
+            document.querySelector('.left-inner h1').innerHTML = (texts[currentSlide]);
+            document.querySelector('.left-second h1').innerHTML = (texts[currentSlide]);
+            //transition();
+            document.documentElement.setAttribute('circle-theme', colors[currentSlide - 1])
+            //progress-bar
+            $('.progress-bar-per').each(function(){
+                var $this = $(this);
+                per = prog_value[currentSlide - 1];
+                $this.css("width",per+'%');
+                $({animatedValue: per_temp}).animate({animatedValue: per},{
+                  duration: 500,
+                });
+              });
+            per_temp = per
+          };
+        },
+        paginationRender: function() {
+          var totalSlides = document.getElementsByClassName('swiper-pagination-bullet').length;
+          if (totalSlides >= 10) {
+            document.querySelector('.total-slide').innerHTML = totalSlides;
+          } else {
+            document.querySelector('.total-slide').innerHTML = "0" + totalSlides;
+          }
+        }
+      },
+      navigation: {// Navigation arrows
+        nextEl: '.swiper-button-right',
+        prevEl: '.swiper-button-left',
+      },
+      scrollbar: { // And if we need scrollbar
+        el: '.swiper-scrollbar',
+      }, 
+    });
+ 
+    
+  </script>
+</body>
+</html>
